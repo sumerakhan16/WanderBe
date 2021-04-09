@@ -1,0 +1,9 @@
+com\wanderBe\controller\RegistrationController.class
+com\wanderBe\config\DataConfig.class
+com\wanderBe\entities\User.class
+com\wanderBe\repo\UserRepository.class
+com\wanderBe\entities\Destinations.class
+com\wanderBe\controller\MainController.class
+com\wanderBe\entities\Activities.class
+com\wanderBe\entities\Restaurants.class
+com\wanderBe\service\UserService.class
