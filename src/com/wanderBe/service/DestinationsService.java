@@ -19,7 +19,7 @@ public class DestinationsService {
 	}	
 	
 	public Destinations getDestinations(Integer dId) {
-		return dr.getBydId(dId);
+		return dr.getOne(dId);
 	}
 	
 	public List<Destinations> getAllDestinations() {
@@ -27,7 +27,7 @@ public class DestinationsService {
 	}
 	
 	public boolean updateDestinations(Integer dId, Destinations destinations) {
-		Destinations getDes = dr.getBydId(dId);
+		Destinations getDes = dr.getOne(dId);
 		
 		if (getDes != null) {
 			getDes.setdName(destinations.getdName());

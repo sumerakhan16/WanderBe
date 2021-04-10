@@ -19,7 +19,7 @@ public class ActivitiesService {
 		return ar.save(activities);
 }
 	public Activities getActivities(Integer aId) {
-		return ar.getByaId(aId);
+		return ar.getOne(aId);
 	}
 	
 	public List<Activities> getAllActivities() {
@@ -27,7 +27,7 @@ public class ActivitiesService {
 	}
 	
 	public boolean updateActivities(Integer aId, Activities activities) {
-		Activities getAct = ar.getByaId(aId);
+		Activities getAct = ar.getOne(aId);
 		
 		if (getAct != null) {
 			getAct.setaName(activities.getaName());

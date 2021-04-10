@@ -2,15 +2,10 @@
 
 /* login */
 
-.row { 
-    background: url(https://i.pinimg.com/originals/ba/3c/f6/ba3cf615e04b769da22c9f4aa675e335.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+/* .row { 
     
   }
-
+*/
 .header  {
     text-align: center;
 }
@@ -19,7 +14,7 @@
 height: 40%;
 width: max-content;
 align-items: center;
-background: url(https://i.pinimg.com/originals/ba/3c/f6/ba3cf615e04b769da22c9f4aa675e335.jpg);
+
 }
 .jumbotron {
     background-color: rgb(166, 221, 255);

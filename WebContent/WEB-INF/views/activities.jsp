@@ -63,7 +63,7 @@
     <!-- The Modal -->
     <div id="myModal" class="modal" style= "width: ; padding: 10%;">
         <div class="modal-body" style="border-style: ridge; margin: 5%;  " >
-          <form:form action="activities" method="post" modelAttribute="activities" id="act">
+          <form:form action="addActivities" method="post" modelAttribute="activities" id="act">
             <span class="close">&times;</span>
             <div class="form-group">
               <label  for="recipient-name" style= "width: 100%;" class="col-form-label line" >Activity Name</label>
@@ -86,6 +86,24 @@
       </div>
     
     </body>
+    
+    <div class="row">		
+	<div class="card-group">
+	<c:forEach items="${actList}" var="activities">
+
+  			
+	  <div class="card border-primary mb-3" style="max-width: 18rem;">
+	  <div class="card-header">${activities.aName}</div>
+	  <div class="card-body text-primary">
+	    <p class="card-text">${activities.aNotes}</p>
+	    <p class="card-text">${activities.aUrl}</p>
+	   <h4>  <a style="color:black;text-decoration:none;" href="${request.getContextPath()}deleteAct${activities.getaId()}">Delete</a>
+    		<a id="editAct" type="button" style="color:black;text-decoration:none;" href="${request.getContextPath()}editAct${activities.getaId()}">Edit</a> </h4> 
+	  </div>
+	</div>
+ 	</c:forEach>
+ 	</div>
+</div>
     
     <script>
       // Get the modal

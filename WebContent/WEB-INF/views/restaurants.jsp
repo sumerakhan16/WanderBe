@@ -79,7 +79,23 @@
       </div>
     </div>
     
-     
+     <div class="row">		
+	<div class="card-group">
+	<c:forEach items="${restList}" var="restaurants">
+ 		<div class="card">
+    		<div class="card-body">
+     		<h5 class="card-title">${restaurants.rName}</h5>
+     		<div class="card-body text-primary">
+	    <p class="card-text">${restaurants.rNotes}</p>
+	    <p class="card-text">${restaurants.rUrl}</p>
+     		<a style="color:black;text-decoration:none;" href="${request.getContextPath()}deleteRest${restaurants.getrId()}">Delete</a>
+    		<a id="editrest" type="button" style="color:black;text-decoration:none;" href="${request.getContextPath()}editRest${restaurants.getrId()}">Edit</a> </h4> 
+   			</div>
+  			</div>
+  			</div>
+ 	</c:forEach>
+ 	</div>
+</div>
 
 </body>
 

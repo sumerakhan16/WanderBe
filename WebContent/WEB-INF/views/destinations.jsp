@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
       <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
     <title>Destinations</title>
 </head>
 
-<body style="background: url(https://www.patternpictures.com/wp-content/uploads/Diamond-subtle-pattern-seamless-white-texture-patternpictures-180201-1600x996.jpg) no-repeat center center fixed; background-size: cover; overflow: hidden; text-align: center;">
+<body style="background: url(https://www.patternpictures.com/wp-content/uploads/Diamond-subtle-pattern-seamless-white-texture-patternpictures-180201-1600x996.jpg) no-repeat center center fixed; background-size: cover; overflow: auto; text-align: center; ">
    
      <!--nav bar  -->
      <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,7 +28,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
+          <div class="navbar-nav" style="position:fixed;">
               <a class="home" href="destinations">Destinations</a>
               <a class="home" href="restaurants">Restaurants</a>
               <a class="home" href="activities">Activities</a>
@@ -54,7 +55,7 @@
     <div id="myModal" class="modal" style= "padding: 10%;">
         <div class="modal-body" style="border-style: ridge; " >
         
-          <form:form action="destinations" method="post" modelAttribute="destinations" id="dest">
+          <form:form action="addDestinations" method="post" modelAttribute="destinations" id="dest">
             <span class="close">&times;</span>
             <div class="form-group">
               <label for="recipient-name" style= "width: 100%;" class="col-form-label line" >Destination Name</label>
@@ -71,10 +72,25 @@
             </div>
          </div>
          
-      
+         
      
+<div class="row">		
+	<div class="card-group">
+	<c:forEach items="${desList}" var="destinations">
+ 		<div class="card">
+   		<img class="card-img-top" src="${destinations.dImageUrl}" alt="Card image cap">
+    		<div class="card-body">
+     		<h5 class="card-title">${destinations.dName}</h5>
+     		<a style="color:black;text-decoration:none;" href="${request.getContextPath()}deleteDest${destinations.getdId()}">Delete</a>
+    		<a id="editdest" type="button" style="color:black;text-decoration:none;" href="${request.getContextPath()}editDest${destinations.getdId()}">Edit</a> </h4> 
+   			</div>
+  			</div>
+ 	</c:forEach>
+ 	</div>
+</div>
 
-    
+		
+						
 </body>
 
 <script>
@@ -84,6 +100,7 @@
   // Get the button that opens the modal
   var btn = document.getElementById("myBtn");
   
+  
   // Get the <span> element that closes the modal
   var span = document.getElementsByClassName("close")[0];
   
@@ -91,6 +108,7 @@
   btn.onclick = function() {
     modal.style.display = "block";
   }
+   
   
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {
