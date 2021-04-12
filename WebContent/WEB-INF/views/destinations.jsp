@@ -19,26 +19,27 @@
 
 <body style="background: url(https://www.patternpictures.com/wp-content/uploads/Diamond-subtle-pattern-seamless-white-texture-patternpictures-180201-1600x996.jpg) no-repeat center center fixed; background-size: cover; overflow: auto; text-align: center; ">
    
-     <!--nav bar  -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-          <img src="/wanderBe/resources/images/passport.png" alt="passport" class="logo" style="width:3%;"> <a class="navbar-brand" style="margin-right: auto; padding: 10px;"><strong>WanderBe</strong></a>
-        
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav" style="position:fixed;">
-              <a class="home" href="destinations">Destinations</a>
-              <a class="home" href="restaurants">Restaurants</a>
-              <a class="home" href="activities">Activities</a>
-              <a class="home" href="resources">Resources</a>
-              <a class="home" href="logout">Logout </a>
-          </div>
+    <!--Navbar-->
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+       <img src="/wanderBe/resources/images/passport.png" alt="passport" class="logo" style="width:3%;"> <a class="navbar-brand" style="margin-right: auto; padding: 10px;"><strong>WanderBe</strong></a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
+        <div class="navbar-nav">
+          <a class="home"  href="destinations">Destinations</a> 
+          <a class="home" href="activities">Activities</a>
+          <a class="home" href="resources">Resources</a>
+          <a class="home" href="logout">Logout </a>
         </div>
       </div>
-    </nav>
-
+    </div>
+  </nav> 
+  <br>
+   <br>
+    <br>
    <!--Bootstrap Jumbotron -->
     <div class="jumbotron">
         <h1 class="display-4" >Destinations</h1>
@@ -123,4 +124,3 @@
   }
   </script>
 
-</html>

@@ -13,26 +13,27 @@
 </head>
 
    <!--Navbar-->
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container-fluid">
-        <img src="/wanderBe/resources/images/passport.png" alt="passport" class="logo" style="width:3%;"> <a class="navbar-brand" style="margin-right: auto; padding: 10px;"><strong>WanderBe</strong></a>
+       <img src="/wanderBe/resources/images/passport.png" alt="passport" class="logo" style="width:3%;"> <a class="navbar-brand" style="margin-right: auto; padding: 10px;"><strong>WanderBe</strong></a>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
         <div class="navbar-nav">
-          <a class="home" href="destinations">Destinations</a>
-          <a class="home" href="restaurants">Restaurants</a>
+          <a class="home"  href="destinations">Destinations</a> 
           <a class="home" href="activities">Activities</a>
           <a class="home" href="resources">Resources</a>
           <a class="home" href="logout">Logout </a>
         </div>
       </div>
     </div>
-  </nav>
-
-<body style="background: url(https://www.patternpictures.com/wp-content/uploads/Diamond-subtle-pattern-seamless-white-texture-patternpictures-180201-1600x996.jpg) no-repeat center center fixed; background-size: cover; overflow: hidden; text-align: center;">
+  </nav> 
+  <br>
+   <br>
+    <br>
+<body style="background: url(https://www.patternpictures.com/wp-content/uploads/Diamond-subtle-pattern-seamless-white-texture-patternpictures-180201-1600x996.jpg) no-repeat center center fixed; background-size: cover; overflow: auto; text-align: center;">
    
   <!--Bootstrap Jumbotron -->
   <div class="jumbotron" style="text-align: center;" >
@@ -40,18 +41,26 @@
     <p class="lead"> </p>
     <hr class="my-4">
     <p>Let's add some more details to your trip.</p>
-
-    <div class="dropdown">
-      <button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Your Destinations
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      </div>
-    </div>
+    
+    
     <!-- button for modal  -->
     <button type="button" class="btn btn-outline-dark" id="myBtn" data-two="Image URL">+Activity</button>
   </div>
 
+	<form action="dropMenu" method="get">
+    <div  style="margin: 2%;">
+      
+          <select  name="dId" class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   		  <c:forEach items="${desList}" var="destinations">
+            <option value="${destinations.dId }">${destinations.dName }
+            </option>
+        </c:forEach>
+        
+    </select>
+     <button type="submit">submit </button>
+     </div>
+    </form>
+      
   <div class = "container">
     <div class = "row">
       <div class = "col-sm-12">
@@ -61,10 +70,23 @@
   </div>
     
     <!-- The Modal -->
-    <div id="myModal" class="modal" style= "width: ; padding: 10%;">
+    <div id="myModal" class="modal" style= "width: ; padding: 10%; overflow:hidden;">
         <div class="modal-body" style="border-style: ridge; margin: 5%;  " >
           <form:form action="addActivities" method="post" modelAttribute="activities" id="act">
             <span class="close">&times;</span>
+            
+            <div class="dropdown">
+      
+          <select  name="dId" class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   			<c:forEach items="${desList}" var="destinations">
+            	<option value="${destinations.dId }">${destinations.dName }
+           		 </option>
+        	</c:forEach>
+    	</select> 
+      
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      </div>
+    </div>
             <div class="form-group">
               <label  for="recipient-name" style= "width: 100%;" class="col-form-label line" >Activity Name</label>
               <input name= "aName" type="text"  class="form-control"placeholder="Example: Go to the Art Museum" id="act-name">
@@ -75,7 +97,7 @@
             </div>
             <div class="form-group">
               <label  for="message-text" class="col-form-label line">Resources URL</label>
-              <textarea name= "aResourcesUrl" class="form-control" placeholder="Example: Link to buy tickets" id="res-url"></textarea>
+              <textarea name= "aUrl" class="form-control" placeholder="Example: Link to buy tickets" id="res-url"></textarea>
          </div>
          
           <div class="modal-footer">
@@ -87,24 +109,24 @@
     
     </body>
     
-    <div class="row">		
-	<div class="card-group">
-	<c:forEach items="${actList}" var="activities">
-
-  			
-	  <div class="card border-primary mb-3" style="max-width: 18rem;">
-	  <div class="card-header">${activities.aName}</div>
-	  <div class="card-body text-primary">
-	    <p class="card-text">${activities.aNotes}</p>
+    <div class="card-deck" >
+    <c:forEach items="${actList}" var="activities">
+       
+  <div class="card" style="background-color:lightgray">
+  <img src="/wanderBe/resources/images/planeticket.png" alt="planeticket" class="logo" style="width:15%;">
+    <div class="card-body" >
+      <h5 class="card-title">${activities.aName}</h5>
+        <p class="card-text">${activities.aNotes}</p>
 	    <p class="card-text">${activities.aUrl}</p>
-	   <h4>  <a style="color:black;text-decoration:none;" href="${request.getContextPath()}deleteAct${activities.getaId()}">Delete</a>
+    <h4>  <a style="color:black;text-decoration:none;" href="${request.getContextPath()}deleteAct${activities.getaId()}">Delete</a>
     		<a id="editAct" type="button" style="color:black;text-decoration:none;" href="${request.getContextPath()}editAct${activities.getaId()}">Edit</a> </h4> 
-	  </div>
-	</div>
- 	</c:forEach>
- 	</div>
-</div>
+    </div>
     
+    </div>
+    </c:forEach>
+  </div>
+  
+   
     <script>
       // Get the modal
       var modal = document.getElementById("myModal");
@@ -133,4 +155,3 @@
       }
       </script>
       
-</html>

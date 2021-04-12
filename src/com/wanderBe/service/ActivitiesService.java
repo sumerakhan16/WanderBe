@@ -25,6 +25,7 @@ public class ActivitiesService {
 	public List<Activities> getAllActivities() {
 		return ar.findAll();
 	}
+
 	
 	public boolean updateActivities(Integer aId, Activities activities) {
 		Activities getAct = ar.getOne(aId);

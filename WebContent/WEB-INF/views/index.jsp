@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css"/>
     <title>Welcome to  WanderBe</title>
-    </div>
+   
 </head>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
@@ -18,6 +18,7 @@
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          </div>
     </nav>
 <body style="background: url(https://i.pinimg.com/originals/ba/3c/f6/ba3cf615e04b769da22c9f4aa675e335.jpg) no-repeat center center fixed; background-size: cover; overflow: hidden; text-align: center;"  >
      <img src="/wanderBe/resources/images/passport.png" alt="passport" class="logo" style="width: 8%; padding-top: 5%;" class="image"> 

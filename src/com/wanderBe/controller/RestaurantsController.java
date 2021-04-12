@@ -33,7 +33,7 @@ public class RestaurantsController {
 	}
 	
 	@RequestMapping(value="/addRestaurants", method=RequestMethod.POST)
-	public ModelAndView destinationsHandler2(@ModelAttribute("restaurants") Restaurants restaurants) {
+	public ModelAndView restaurantsHandler2(@ModelAttribute("restaurants") Restaurants restaurants) {
 		rs.addRestaurants(restaurants);
 		List<Restaurants> getAllRestaurants = rs.getAllRestaurants();
 		System.out.println(getAllRestaurants);
