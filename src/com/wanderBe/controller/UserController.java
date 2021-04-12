@@ -19,12 +19,14 @@ public class UserController {
 	@Autowired
 	UserService us;
 
+	//access to login/register page
 	@RequestMapping("/login")
 	    public ModelAndView loginHandler() {
 	        ModelAndView mav = new ModelAndView("login");    
 	        return mav;
 	}
 
+	//get user from database using request parameters
 	@RequestMapping(value = "loginProcess", method = RequestMethod.GET)
 	public ModelAndView loginPageHandler(@RequestParam("uName") String uName, @RequestParam("uPass") String uPass, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -35,7 +37,7 @@ public class UserController {
 			mav.addObject(newUser);
 			mav.setViewName("destinations");
 		} else {
-			request.setAttribute("message",  "Unable to login, Please enter correct Username and Password");
+			request.setAttribute("message",  "Unable to login, Please enter Correct Username and Password");
 			mav.setViewName("login");
 		}
 			

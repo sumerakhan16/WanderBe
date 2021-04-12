@@ -29,7 +29,7 @@ public class ActivitiesController {
 	@Autowired
 	DestinationsService ds;
 	
-	
+	//display saved data to activities page
 	@RequestMapping("/activities")
 	public ModelAndView activitiesHandler() {
 		ModelAndView mav = new ModelAndView("activities");
@@ -41,7 +41,7 @@ public class ActivitiesController {
 		return mav;
 	}
 
-	
+	//display newly added data to activities
 	@RequestMapping(value="/addActivities", method=RequestMethod.POST)
 	public ModelAndView ActivityHandler2(@RequestParam("dId") Integer dId, @RequestParam("aName") String aName, @RequestParam("aNotes") String aNotes, @RequestParam("aUrl") String aUrl) {
 		Activities activities = new Activities();
@@ -64,6 +64,8 @@ public class ActivitiesController {
 		System.out.println("reaching activities");
 		return mav;
 }
+	
+	//get activities based on a specific destination
 	@RequestMapping(value="/dropMenu", method=RequestMethod.GET) 
 		public ModelAndView dropMenu(@RequestParam("dId") Integer dId) {
 		List<Activities> getAllActivities = ds.getDestinations(dId).getActivities();
@@ -74,6 +76,8 @@ public class ActivitiesController {
 		return mav;
 	}
 	
+	
+	//edit activities
 	@RequestMapping(value="/editAct{aId}", method=RequestMethod.GET)
 	public ModelAndView ActEditForm(@PathVariable("aId") Integer aId) {
 		List<Activities> getAllActivities = as.getAllActivities();
@@ -84,6 +88,7 @@ public class ActivitiesController {
 		return mav;
 }
 	
+	//post edited activities to activities page
 	@RequestMapping(value="/editActivities", method=RequestMethod.POST)
 	
 	public ModelAndView EditActForm(@ModelAttribute("activities") Activities activities) {
@@ -94,6 +99,7 @@ public class ActivitiesController {
 		return mav;
 	}
 	
+	//delete existing activities
 	@RequestMapping(value="/deleteAct{aId}", method=RequestMethod.GET)
 	public ModelAndView DeleteActivities(@PathVariable("aId") Integer aId) {
 		as.deleteActById(aId);

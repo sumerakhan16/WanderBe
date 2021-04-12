@@ -50,6 +50,7 @@ background-size: cover;">
 								Password: <input type="password" name="uPass" required><br>
 								<br>
 								Verify Password: <input type="password" name="verifyPass" required><br>
+								<span>${passwordMessage}</span>
 								<br>
 								<input type="submit" name="register" value="Register" style="width:50%">
 							</div>

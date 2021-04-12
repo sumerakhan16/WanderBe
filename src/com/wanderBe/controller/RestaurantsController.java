@@ -3,6 +3,7 @@ package com.wanderBe.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,7 @@ import com.wanderBe.entities.Restaurants;
 import com.wanderBe.repo.RestaurantsRepository;
 import com.wanderBe.service.RestaurantsService;
 
+@Controller
 public class RestaurantsController {
 
 	@Autowired
@@ -32,6 +34,7 @@ public class RestaurantsController {
 		return mav;
 	}
 	
+	//add restaurants to page
 	@RequestMapping(value="/addRestaurants", method=RequestMethod.POST)
 	public ModelAndView restaurantsHandler2(@ModelAttribute("restaurants") Restaurants restaurants) {
 		rs.addRestaurants(restaurants);
@@ -43,6 +46,7 @@ public class RestaurantsController {
 		return mav;
 
 }
+	
 	@RequestMapping(value="/editRest{rId}", method=RequestMethod.GET)
 	public ModelAndView EditRestForm(@PathVariable("rId") Integer rId) {
 		List<Restaurants> getAllRestaurants = rs.getAllRestaurants();
